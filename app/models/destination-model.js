@@ -2,7 +2,8 @@
 "use strict";
 
 const mongoose = require("mongoose"),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    commentSchema = require("./commentschema");
 
 
 let DestinationSchema = new Schema({
@@ -22,6 +23,7 @@ let DestinationSchema = new Schema({
     location: {
         type: String,
     },
+    comments: [commentSchema],
     isVisited: {
         type: Boolean,
         default: false

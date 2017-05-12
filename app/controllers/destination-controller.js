@@ -44,6 +44,15 @@ module.exports = function(data) {
                 .then((destination) => {
                     res.render("../views/user-destination.pug", { destination })
                 });
+        },
+
+        addComment(req, res) {
+            let id = req.params.id;
+            let comment = req.body.content;
+            return data.addCommentToDestination(id, comment)
+                .then(() => {
+                    res.redirect("/destinations/" + id);
+                })
         }
     }
 }

@@ -13,6 +13,7 @@ module.exports = function(data) {
                 })
             res.redirect("/user/destinations/" + req.params.id);
         },
+
         showSingleFileUploadForm(req, res) {
             res.render("../views/upload-single-form.pug", { req });
         }
