@@ -11,14 +11,14 @@ module.exports = function(data) {
         },
 
         profile(req, res) {
-            const username = req.user.username;
-            res.render('../views/profile.pug', { username });
+            const fullName = req.user.firstName + ' ' + req.user.lastName;
+            res.render('../views/profile.pug', { fullName });
         },
 
         registerUser(req, res) {
-            const { username, password } = req.body;
+            const { firstName, lastName, username, password } = req.body;
 
-            return data.registerUser(username, password)
+            return data.registerUser(firstName, lastName, username, password)
                 .then((user) => {
                     res.redirect('/home');
                 })
