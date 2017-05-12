@@ -3,8 +3,8 @@
 
 module.exports = function (data) {
     return {
-        getDestination(req,res){
-            res.render("../views/create-destination.pug",{})
+        getDestination(req, res){
+            res.render("../views/create-destination.pug", {})
         },
         addDestionation(req, res){
             let title = req.body.name;
@@ -13,18 +13,27 @@ module.exports = function (data) {
 
             data.createDestination(title, description, imagePath)
                 .then((destination) => {
-                    res.redirect("home-page");
+                    console.log(destination);
+                    let id = destination._id;
+                    res.redirect(id);
                 })
                 .catch((error) => {
-                    console.log(error)
-                    console.log("failed to add destionation");
+
                 })
         },
-        allDestionations(req, res){
+        allDestinations(req, res){
+            data.showAllDestinations()
+                .then((destinations) => {
 
+                    res.render("../views/all-destinations.pug", {destinations})
+                })
         },
-        getDestionationById(req, res){
-
+        getDestinationById(req, res){
+            let id = req.params.id;
+            data.findDestinationById(id)
+                .then((destination) => {
+                    res.render("../views/single-destination.pug", {destination})
+                })
         },
     }
 }

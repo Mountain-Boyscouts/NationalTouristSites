@@ -1,0 +1,14 @@
+extends index
+
+
+block main
+    #banner.page-header
+        .row
+            .col-lg-12
+                .panel.panel-info
+                    .panel-heading
+                        h1.panel-title  #{destination.title}
+                    .panel-body
+                        | Description:
+                        .well
+                        |  #{destination.description}

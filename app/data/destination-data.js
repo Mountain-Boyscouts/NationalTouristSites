@@ -27,6 +27,30 @@ module.exports = function (models) {
             });
 
 
+        },
+        showAllDestinations(){
+            console.log("Predi destinaciq");
+            return new Promise((resolve, reject) => {
+                Destination.find((error, destinations) => {
+                    if (error) {
+                        console.log("vulk");
+                        return reject(error);
+                    }
+                    return resolve(destinations);
+                })
+            })
+        },
+
+        findDestinationById(id){
+            return new Promise((resolve, reject) => {
+                Destination.findOne({_id:id},(error,destination)=>{
+                    if(error){
+                        return reject(error);
+                    }
+                    console.log(destination);
+                    return resolve(destination);
+                });
+            })
         }
     }
 }
