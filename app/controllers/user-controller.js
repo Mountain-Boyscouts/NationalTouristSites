@@ -12,11 +12,9 @@ module.exports = function(data) {
 
         profile(req, res) {
             const fullName = req.user.firstName + ' ' + req.user.lastName;
-            data.showAllDestinations()
-                .then((destinations) => {
+            const destinations = req.user.destinations;
 
-                    res.render("../views/all-destinations.pug", { fullName, destinations })
-                });
+            res.render("../views/all-destinations.pug", { fullName, destinations });
         },
 
         registerUser(req, res) {

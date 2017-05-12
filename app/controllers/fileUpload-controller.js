@@ -10,7 +10,8 @@ module.exports = function(data) {
                 .then((destination) => {
                     destination.imagePath = destinationImagePath;
                     destination.save();
-                })
+                });
+
             res.redirect("/user/destinations/" + req.params.id);
         },
 
