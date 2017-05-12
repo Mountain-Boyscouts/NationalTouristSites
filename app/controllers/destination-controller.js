@@ -37,5 +37,13 @@ module.exports = function(data) {
                     res.render("../views/single-destination.pug", { destination })
                 })
         },
+
+        checkDestination(req, res) {
+            let id = req.params.id;
+            data.findDestinationById(id)
+                .then((destination) => {
+                    res.render("../views/user-destination.pug", { destination })
+                });
+        }
     }
 }

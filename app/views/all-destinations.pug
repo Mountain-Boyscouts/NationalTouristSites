@@ -14,8 +14,15 @@ block main
                 .col-lg-4.col-md-5
                     .panel.panel-primary.text-center
                         - var url = destination.id;
-                            .panel-heading
-                                h3.panel-title
-                                    a(href="/destinations/" + url) #{destination.title}
-                            .panel-image
-                                img(src=`${destination.imagePath}` class="destination-image transperant")
+                            if(fullName)
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="user/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    img(src=`${destination.imagePath}` class="destination-image transperant")
+                            else
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    img(src=`${destination.imagePath}` class="destination-image")
