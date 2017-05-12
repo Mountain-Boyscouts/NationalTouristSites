@@ -23,7 +23,7 @@ module.exports = function(models) {
                     }
 
                     return resolve(destination);
-                })
+                });
             });
         },
 
@@ -34,8 +34,8 @@ module.exports = function(models) {
                         return reject(error);
                     }
                     return resolve(destinations);
-                })
-            })
+                });
+            });
         },
 
         findDestinationById(id) {
@@ -46,7 +46,7 @@ module.exports = function(models) {
                     }
                     return resolve(destination);
                 });
-            })
+            });
         },
 
         searchDestinations(title) {

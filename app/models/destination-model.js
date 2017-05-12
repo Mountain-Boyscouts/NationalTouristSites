@@ -10,25 +10,25 @@ let DestinationSchema = new Schema({
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    imagePath:{
+    imagePath: {
         type: String,
         // required: true
         default: "../public/uploads/default-nature.jpg"
     },
-    location:{
-        type:String,
+    location: {
+        type: String,
     },
-    isVisited:{
+    isVisited: {
         type: Boolean,
         default: false
     },
-    workingTime:{
+    workingTime: {
         type: String,
-        required:false,
+        required: false,
     }
 });
 

@@ -19,7 +19,10 @@ let schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    destinations: [{}],
+    destinations: {
+        type: Array,
+        required: true
+    },
     comments: [{}]
 });
 
