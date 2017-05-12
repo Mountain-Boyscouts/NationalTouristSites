@@ -53,6 +53,6 @@ module.exports = function(data) {
         logoutUser(req, res) {
             req.logout();
             res.redirect("/home");
-        },
+        }
     };
 };
