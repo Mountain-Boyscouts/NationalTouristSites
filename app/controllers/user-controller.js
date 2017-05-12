@@ -1,6 +1,6 @@
 const passport = require("passport");
 
-module.exports = function(data) {
+module.exports = function (data) {
     return {
         login(req, res) {
             res.render('../views/login.pug');
@@ -14,11 +14,11 @@ module.exports = function(data) {
             const fullName = req.user.firstName + ' ' + req.user.lastName;
             const destinations = req.user.destinations;
 
-            res.render("../views/all-destinations.pug", { fullName, destinations });
+            res.render("../views/all-destinations.pug", {fullName, destinations});
         },
 
         registerUser(req, res) {
-            const { firstName, lastName, username, password } = req.body;
+            const {firstName, lastName, username, password} = req.body;
 
             return data.registerUser(firstName, lastName, username, password)
                 .then((user) => {
@@ -55,6 +55,12 @@ module.exports = function(data) {
             });
 
             auth(req, res, next);
+        },
+        showAllUsers(req, res){
+           data.getAllUsers()
+               .then((users)=>{
+                    res.render("../views/showAllUsers.pug",{users})
+               })
         },
 
         logoutUser(req, res) {
