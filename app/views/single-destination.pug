@@ -12,3 +12,11 @@ block main
                         | Description:
                         .well
                         |  #{destination.description}
+                    a(href='/destinations/uploadfile')
+                        img.profile-pic(src=destination.imagePath)
+                    .col-lg-4.col-md-4
+                          h3 Upload file here(.png, .jpeg )
+                    form(action="/destinations/" + destination.id enctype="multipart/form-data" method="post")
+                        input.form-control.btn.btn-success(type="file" name="photo" placeholder="Choose from file" accept="image/*" required)
+
+                        input.btn.btn-success(type="submit" value="Save")

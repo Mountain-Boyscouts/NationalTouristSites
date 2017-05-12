@@ -17,6 +17,7 @@ let DestinationSchema = new Schema({
     imagePath:{
         type: String,
         // required: true
+        default: "../public/uploads/default-nature.jpg"
     },
     location:{
         type:String,

@@ -43,7 +43,6 @@ module.exports = function(models) {
                     if (error) {
                         return reject(error);
                     }
-                    console.log(destination);
                     return resolve(destination);
                 });
             })
