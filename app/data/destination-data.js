@@ -1,8 +1,8 @@
 /* globals require module Promise */
 "use strict";
 
-module.exports = function(models) {
-    let { Destination } = models;
+module.exports = function (models) {
+    let {Destination} = models;
 
     return {
         createDestination(title, description, imagePath) {
@@ -13,7 +13,8 @@ module.exports = function(models) {
                 title,
                 description,
                 imagePath,
-                isVisited
+                isVisited,
+                comments:[]
             });
 
             return new Promise((resolve, reject) => {
@@ -39,7 +40,7 @@ module.exports = function(models) {
 
         findDestinationById(id) {
             return new Promise((resolve, reject) => {
-                Destination.findOne({ _id: id }, (error, destination) => {
+                Destination.findOne({_id: id}, (error, destination) => {
                     if (error) {
                         return reject(error);
                     }
@@ -49,7 +50,7 @@ module.exports = function(models) {
         },
 
         searchDestinations(title) {
-            let query = { "title": new RegExp(`${title}`, "i") };
+            let query = {"title": new RegExp(`${title}`, "i")};
             return new Promise((resolve, reject) => {
                 Destination.find(query)
                     .exec((err, projects) => {
@@ -61,5 +62,23 @@ module.exports = function(models) {
                     });
             });
         },
+        addCommentToDestination(id, comment){
+            return new Promise((resolve,reject)=>{
+                console.log("V datata")
+                console.log(comment);
+                Destination.findByIdAndUpdate(id,
+                    { $push: { "comments": { comment:comment } } },
+                    { safe: true, upsert: true },
+                    (err, model) => {
+                    console.log("1111");
+                    if (err) {
+                        reject(err);
+                    }
+
+                    resolve(model);
+                }
+                )
+            })
+        }
     }
 }

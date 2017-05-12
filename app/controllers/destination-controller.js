@@ -1,6 +1,7 @@
 /* globals require */
 "use strict";
 
+
 module.exports = function (data) {
     return {
         getDestination(req, res){
@@ -35,5 +36,13 @@ module.exports = function (data) {
                     res.render("../views/single-destination.pug", {destination})
                 })
         },
+        addComment(req, res){
+            let id = req.params.id;
+            let comment = req.body.content;
+            return data.addCommentToDestination(id, comment)
+                .then(() => {
+                    res.redirect("destinations/" + id);
+                })
+        }
     }
 }

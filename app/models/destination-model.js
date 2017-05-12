@@ -2,7 +2,8 @@
 "use strict";
 
 const mongoose = require("mongoose"),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    commentSchema = require("./commentschema");
 
 
 let DestinationSchema = new Schema({
@@ -10,25 +11,27 @@ let DestinationSchema = new Schema({
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    imagePath:{
+    imagePath: {
         type: String,
         // required: true
         default: "../public/uploads/default-nature.jpg"
     },
-    location:{
-        type:String,
+    location: {
+        type: String,
     },
-    isVisited:{
+    comments: [commentSchema],
+
+    isVisited: {
         type: Boolean,
         default: false
     },
-    workingTime:{
+    workingTime: {
         type: String,
-        required:false,
+        required: false,
     }
 });
 

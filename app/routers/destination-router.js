@@ -5,6 +5,7 @@ module.exports = function (server, controller) {
     server.post("/destinations/create", controller.addDestionation);
     server.get("/destinations", controller.allDestinations);
     server.get("/destinations/:id", controller.getDestinationById)
+    server.post("/destinations/:id/add-comment",controller.addComment)
 
 
 };

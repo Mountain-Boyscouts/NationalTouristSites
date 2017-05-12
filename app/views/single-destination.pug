@@ -12,11 +12,16 @@ block main
                         | Description:
                         .well
                         |  #{destination.description}
-                    a(href='/destinations/uploadfile')
-                        img.profile-pic(src=destination.imagePath)
-                    .col-lg-4.col-md-4
-                          h3 Upload file here(.png, .jpeg )
-                    form(action="/destinations/" + destination.id enctype="multipart/form-data" method="post")
-                        input.form-control.btn.btn-success(type="file" name="photo" placeholder="Choose from file" accept="image/*" required)
+                    img.profile-pic(src=destination.imagePath)
 
-                        input.btn.btn-success(type="submit" value="Save")
+                    each comment in destination.comments
+                        div
+                                p #{comment.comment}
+                        hr
+
+
+                    form(action="/destinations/" + destination.id + "/add-comment" method="post")
+                        legend Add a comment
+                        .form-group
+                            textarea#tb-content.form-control(placeholder='Enter your comment', type='text', name="content" rows="3")
+                            input#add-comment-btn.btn.btn-success(type="submit" value="Add comment")
