@@ -51,6 +51,19 @@ module.exports = function (models) {
                     return resolve(destination);
                 });
             })
-        }
+        },
+        searchDestinations(title) {
+            let query = { "title": new RegExp(`${title}`, "i") };
+            return new Promise((resolve, reject) => {
+                Destination.find(query)
+                    .exec((err, projects) => {
+                        if (err) {
+                            return reject(err);
+                        }
+
+                        return resolve(projects);
+                    });
+            });
+        },
     }
 }
