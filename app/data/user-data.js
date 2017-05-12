@@ -25,6 +25,30 @@ module.exports = function(models) {
                     return resolve(user);
                 });
             });
+        },
+        findUserByUsername(username) {
+            return new Promise((resolve, reject) => {
+                User.findOne()
+                    .byName(username)
+                    .exec((err, user) => {
+                        if (err) {
+                            return reject(err);
+                        }
+
+                        return resolve(user);
+                    });
+            });
+        },
+        findUserById(userId) {
+            return new Promise((resolve, reject) => {
+                User.findById(userId).exec((err, user) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(user);
+                });
+            });
         }
-    }
+    };
 };
