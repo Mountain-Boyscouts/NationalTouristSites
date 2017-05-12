@@ -1,7 +1,8 @@
 /* globals require */
 "use strict";
 
-module.exports = function (data) {    return {
+module.exports = function (data) {
+    return {
         getDestination(req, res) {
             res.render("../views/create-destination.pug", {})
         },
@@ -25,7 +26,7 @@ module.exports = function (data) {    return {
             data.showAllDestinations()
                 .then((destinations) => {
 
-                    res.render("../views/all-destinations.pug", { destinations })
+                    res.render("../views/all-destinations.pug", {destinations})
                 })
         },
 
@@ -33,8 +34,16 @@ module.exports = function (data) {    return {
             let id = req.params.id;
             data.findDestinationById(id)
                 .then((destination) => {
-                    res.render("../views/single-destination.pug", { destination })
+                    res.render("../views/single-destination.pug", {destination})
                 })
         },
+        addComment(req, res){
+            let id = req.params.id;
+            let comment = req.body.content;
+            return data.addCommentToDestination(id, comment)
+                .then(() => {
+                    res.redirect("destinations/" + id);
+                })
+        }
     }
 }
