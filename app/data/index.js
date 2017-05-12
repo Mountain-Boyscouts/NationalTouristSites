@@ -15,5 +15,6 @@ module.exports = function(models) {
                     data[key] = dataModule[key];
                 });
         });
+
     return data;
 };

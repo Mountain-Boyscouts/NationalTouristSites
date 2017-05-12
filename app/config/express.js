@@ -19,11 +19,10 @@ module.exports = (app, config) => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(cookieParser());
 
-    let sessionStorage = new MongoDBStore(
-        {
-            uri: config.db.cloud,
-            collection: "userSessions"
-        });
+    let sessionStorage = new MongoDBStore({
+        uri: config.db.cloud,
+        collection: "userSessions"
+    });
 
     app.use(session({
         secret: "secret",
@@ -72,7 +71,7 @@ module.exports = (app, config) => {
     // error handler
     // eslint-disable-next-line
     app.use((err, req, res, next) => {
-    // set locals, only providing error in development
+        // set locals, only providing error in development
         res.locals.message = err.message;
         if (req.app.get("env") === "development") {
             res.locals.error = err;

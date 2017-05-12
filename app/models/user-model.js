@@ -22,6 +22,7 @@ let schema = new mongoose.Schema({
     destinations: [{}],
     comments: [{}]
 });
+
 mongoose.model("User", schema);
 
 module.exports = mongoose.model("User");
