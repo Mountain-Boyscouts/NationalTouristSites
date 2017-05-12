@@ -1,0 +1,14 @@
+extends index
+
+block main
+    .row
+        .col-lg-4.col-md-6
+            h1 Login here:
+            form(action="/login" method="post")
+                .form-group
+                    input.form-control(type="text" name="username" placeholder="Enter Username" required)
+                    input.form-control(type="password" name="password" placeholder="Enter Password" required)
+                    input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                    input.btn.btn-success(type="submit" value="Login")
+            .form-group
