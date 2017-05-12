@@ -55,7 +55,8 @@ module.exports = (app, config) => {
     });
 
     const User = require("../models/user-model");
-    const data = require("../data")({ User });
+    const Destination = require("../models/destination-model");
+    const data = require("../data")({ User,Destination });
     const controllers = require("../controllers")(data);
 
     require("../routers")(app, controllers);
