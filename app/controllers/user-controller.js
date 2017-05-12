@@ -10,6 +10,11 @@ module.exports = function(data) {
             res.render('../views/register.pug');
         },
 
+        profile(req, res) {
+            const username = req.user.username;
+            res.render('../views/profile.pug', { username });
+        },
+
         registerUser(req, res) {
             const { username, password } = req.body;
 
