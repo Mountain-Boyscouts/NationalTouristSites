@@ -1,12 +1,12 @@
 /* globals require */
 "use strict";
 
-module.exports = function (data) {
+module.exports = function(data) {
     return {
-        getDestination(req, res){
+        getDestination(req, res) {
             res.render("../views/create-destination.pug", {})
         },
-        addDestionation(req, res){
+        addDestionation(req, res) {
             let title = req.body.name;
             let description = req.body.description;
             let imagePath = req.body.imagePath;
@@ -21,18 +21,20 @@ module.exports = function (data) {
 
                 })
         },
-        allDestinations(req, res){
+
+        allDestinations(req, res) {
             data.showAllDestinations()
                 .then((destinations) => {
 
-                    res.render("../views/all-destinations.pug", {destinations})
+                    res.render("../views/all-destinations.pug", { destinations })
                 })
         },
-        getDestinationById(req, res){
+
+        getDestinationById(req, res) {
             let id = req.params.id;
             data.findDestinationById(id)
                 .then((destination) => {
-                    res.render("../views/single-destination.pug", {destination})
+                    res.render("../views/single-destination.pug", { destination })
                 })
         },
     }

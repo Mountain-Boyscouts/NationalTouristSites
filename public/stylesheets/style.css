@@ -94,3 +94,7 @@ img.profile-pic {
     width: 358px;
     height: 300px;
 }
+
+.transperant {
+    opacity: 0.25;
+}
