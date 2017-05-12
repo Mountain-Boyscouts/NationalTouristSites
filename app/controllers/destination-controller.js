@@ -23,12 +23,18 @@ module.exports = function (data) {
         allDestinations(req, res){
             data.showAllDestinations()
                 .then((destinations)=>{
-                    console.log(destinations)
+
                     res.render("../views/all-destinations.pug",{destinations})
                 })
         },
-        getDestionationById(req, res){
-
+        getDestinationById(req, res){
+            console.log(req.params);
+            let id = req.params.id;
+            data.findDestinationById(id)
+                .then((destination)=>{
+                    console.log(destination)
+                    res.render("../views/single-destination.pug",{destination})
+                })
         },
     }
 }

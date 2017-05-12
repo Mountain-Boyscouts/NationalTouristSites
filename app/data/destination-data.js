@@ -39,6 +39,18 @@ module.exports = function (models) {
                     return resolve(destinations);
                 })
             })
+        },
+
+        findDestinationById(id){
+            return new Promise((resolve, reject) => {
+                Destination.findOne({_id:id},(error,destination)=>{
+                    if(error){
+                        return reject(error);
+                    }
+                    console.log(destination);
+                    return resolve(destination);
+                });
+            })
         }
     }
 }
