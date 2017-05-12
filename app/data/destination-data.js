@@ -1,11 +1,11 @@
 /* globals require module Promise */
 "use strict";
 
-module.exports = function (models) {
-    let {Destination} = models;
+module.exports = function(models) {
+    let { Destination } = models;
 
     return {
-        createDestination(title, description, imagePath){
+        createDestination(title, description, imagePath) {
 
             let isVisited = false;
 
@@ -25,15 +25,11 @@ module.exports = function (models) {
                     return resolve(destination);
                 })
             });
-
-
         },
-        showAllDestinations(){
-            console.log("Predi destinaciq");
+        showAllDestinations() {
             return new Promise((resolve, reject) => {
                 Destination.find((error, destinations) => {
                     if (error) {
-                        console.log("vulk");
                         return reject(error);
                     }
                     return resolve(destinations);
@@ -41,10 +37,10 @@ module.exports = function (models) {
             })
         },
 
-        findDestinationById(id){
+        findDestinationById(id) {
             return new Promise((resolve, reject) => {
-                Destination.findOne({_id:id},(error,destination)=>{
-                    if(error){
+                Destination.findOne({ _id: id }, (error, destination) => {
+                    if (error) {
                         return reject(error);
                     }
                     console.log(destination);
@@ -52,6 +48,7 @@ module.exports = function (models) {
                 });
             })
         },
+
         searchDestinations(title) {
             let query = { "title": new RegExp(`${title}`, "i") };
             return new Promise((resolve, reject) => {
