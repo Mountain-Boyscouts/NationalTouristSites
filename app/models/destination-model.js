@@ -16,7 +16,7 @@ let DestinationSchema = new Schema({
     },
     imagePath:{
         type: String,
-        required: true
+        // required: true
     },
     location:{
         type:String,
@@ -29,11 +29,10 @@ let DestinationSchema = new Schema({
         type: String,
         required:false,
     }
+});
 
-}
 
-
-let Destionation;
-mongoose.model("Destionation", DestinationSchema);
-Destionation = mongoose.model("Destionation");
-module.exports = Destionation;
+let Destination;
+mongoose.model("Destination", DestinationSchema);
+Destination = mongoose.model("Destination");
+module.exports = Destination;

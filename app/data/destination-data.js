@@ -5,7 +5,7 @@ module.exports = function (models) {
     let {Destination} = models;
 
     return {
-        CreateDestination(title, description, imagePath){
+        createDestination(title, description, imagePath){
 
             let isVisited = false;
 
@@ -15,8 +15,18 @@ module.exports = function (models) {
                 imagePath,
                 isVisited
             });
+
+            return new Promise((resolve, reject) => {
+                destination.save((err) => {
+                    if (err) {
+                        return reject(err);
+                    }
+
+                    return resolve(destination);
+                })
+            });
+
+
         }
     }
-
-
 }
