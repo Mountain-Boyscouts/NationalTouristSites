@@ -10,10 +10,15 @@ module.exports = function(data) {
             res.render('../views/register.pug');
         },
 
-        registerUser(req, res) {
-            const { username, password } = req.body;
+        profile(req, res) {
+            const fullName = req.user.firstName + ' ' + req.user.lastName;
+            res.render('../views/profile.pug', { fullName });
+        },
 
-            return data.registerUser(username, password)
+        registerUser(req, res) {
+            const { firstName, lastName, username, password } = req.body;
+
+            return data.registerUser(firstName, lastName, username, password)
                 .then((user) => {
                     res.redirect('/home');
                 })

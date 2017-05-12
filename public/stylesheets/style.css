@@ -3,7 +3,7 @@ html {
     min-height: 100%;
 }
 
-html > body {
+html>body {
     padding: 65px 0 0;
     margin-bottom: 60px;
 }
@@ -70,4 +70,22 @@ img.profile-pic {
 
 .error {
     color: #f00;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
