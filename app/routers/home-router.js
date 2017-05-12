@@ -1,9 +1,6 @@
 "use strict";
 
-module.exports = function(server, controller, isAuthenticated) {
-    server.get("/home", () => {
-        controller.homePage(isAuthenticated);
-    });
-
+module.exports = function(server, controller) {
+    server.get("/home", controller.homePage);
     server.get("", controller.homePage);
 };

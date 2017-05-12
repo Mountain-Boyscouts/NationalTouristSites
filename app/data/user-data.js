@@ -26,6 +26,7 @@ module.exports = function(models) {
                 });
             });
         },
+
         findUserByUsername(username) {
             return new Promise((resolve, reject) => {
                 User.findOne()
@@ -39,6 +40,7 @@ module.exports = function(models) {
                     });
             });
         },
+
         findUserById(userId) {
             return new Promise((resolve, reject) => {
                 User.findById(userId).exec((err, user) => {

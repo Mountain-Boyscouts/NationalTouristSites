@@ -2,9 +2,9 @@
 "use strict";
 module.exports = function() {
     return {
-        homePage(req, res, isAuthenticated) {
-            const options = { isAuthenticated };
-            res.render("home-page", { options });
+        homePage(req, res) {
+            const username = req.user.username;
+            res.render("home-page", { username: username });
         }
     };
 };
