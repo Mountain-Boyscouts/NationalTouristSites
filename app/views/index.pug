@@ -24,11 +24,6 @@ block content
                                 a(href='/destinations') View All Tourist Sites
                             li
                                 a(href='/destinations/create') Create Tourist Site
-                            li
-                                a(href='#') Find Tourist Site
-                    li
-                        a(href='/comments')
-                            | Comments
                     li
                         a(href='/users') Users
                 form.form-inline.navbar-form.navbar-left(action="/search" method="get" role='search')
@@ -37,8 +32,6 @@ block content
                         select.form-control#select(name="searchType")
                             option
                                 | Destinations
-                            option
-                                | Comments
                             option
                                 | Users
                     button.btn.btn-warning.btn-sm(type='submit')
