@@ -20,8 +20,12 @@ module.exports = function (data) {
                     console.log("failed to add destionation");
                 })
         },
-        allDestionations(req, res){
-
+        allDestinations(req, res){
+            data.showAllDestinations()
+                .then((destinations)=>{
+                    console.log(destinations)
+                    res.render("../views/all-destinations.pug",{destinations})
+                })
         },
         getDestionationById(req, res){
 
