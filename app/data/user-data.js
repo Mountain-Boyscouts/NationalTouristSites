@@ -2,8 +2,10 @@ module.exports = function(models) {
     const { User } = models;
 
     return {
-        registerUser(username, password) {
+        registerUser(firstName, lastName, username, password) {
             const user = new User({
+                firstName,
+                lastName,
                 username,
                 password
             });

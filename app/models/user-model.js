@@ -3,6 +3,14 @@
 const mongoose = require("mongoose");
 
 let schema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true
@@ -15,6 +23,11 @@ let schema = new mongoose.Schema({
     comments: [{}]
 });
 
+schema
+    .virtual("fullName")
+    .get(function() {
+        return `${this.firstName} ${this.lastName}`;
+    });
 
 schema.query.byName = function(name) {
     let query = { "username": new RegExp(name, "i") };

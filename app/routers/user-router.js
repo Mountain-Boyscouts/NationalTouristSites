@@ -5,6 +5,8 @@ module.exports = function(server, userController) {
     server.get('/login', userController.login);
     server.post('/login', userController.loginUser);
 
+    server.get('/profile', userController.profile);
+
     server.get('/register', userController.register);
     server.post('/register', userController.registerUser);
 
