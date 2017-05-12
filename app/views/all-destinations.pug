@@ -5,14 +5,24 @@ block main
         .row
             .col-lg-10
                 .page-header
-                    h1 Destinations
+                    if(fullName)
+                        h1 #{fullName}' destinations
+                    else
+                        h1 Destinations
         .row
             each destination in destinations
-                .col-lg-6.col-md-7
-                    .panel.panel-primary
+                .col-lg-4.col-md-5
+                    .panel.panel-primary.text-center
                         - var url = destination.id;
-                            .panel-heading
-                                h3.panel-title
-                                    a(href="/destinations/" + url) #{destination.title}
-                            .panel-body
-                                p #{destination.description}
+                            if(fullName)
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="user/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    img(src=`${destination.imagePath}` class="destination-image transperant")
+                            else
+                                .panel-heading
+                                    h3.panel-title
+                                        a(href="/destinations/" + url) #{destination.title}
+                                .panel-image
+                                    img(src=`${destination.imagePath}` class="destination-image")

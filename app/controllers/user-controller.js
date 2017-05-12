@@ -15,7 +15,7 @@ module.exports = function(data) {
             data.showAllDestinations()
                 .then((destinations) => {
 
-                    res.render("../views/profile.pug", { fullName, destinations })
+                    res.render("../views/all-destinations.pug", { fullName, destinations })
                 });
         },
 

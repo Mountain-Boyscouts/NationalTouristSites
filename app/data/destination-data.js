@@ -27,6 +27,7 @@ module.exports = function (models) {
                 })
             });
         },
+
         showAllDestinations() {
             return new Promise((resolve, reject) => {
                 Destination.find((error, destinations) => {

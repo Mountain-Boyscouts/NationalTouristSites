@@ -89,3 +89,12 @@ img.profile-pic {
     width: 100%;
     height: 100%;
 }
+
+.destination-image {
+    width: 358px;
+    height: 300px;
+}
+
+.transperant {
+    opacity: 0.25;
+}
