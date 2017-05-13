@@ -104,5 +104,13 @@ img.profile-pic {
     position: absolute;
     right: 30px;
     top: 65px;
-    z-index: 9999;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.nav {
+    z-index: 20;
 }

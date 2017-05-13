@@ -1,6 +1,7 @@
 "use strict";
 
 const path = require("path");
+const { visited } = require('constants');
 
 module.exports = function(data) {
     return {
@@ -12,7 +13,10 @@ module.exports = function(data) {
                     destination.save();
                 });
 
-            res.redirect("/user/destinations/" + req.params.id);
+            console.log(req.params.id);
+            data.visited.push(req.params.id);
+
+            res.redirect("/profile");
         },
 
         showSingleFileUploadForm(req, res) {

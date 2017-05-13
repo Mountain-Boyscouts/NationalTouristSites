@@ -5,10 +5,11 @@ module.exports = function(data) {
         homePage(req, res) {
             res.render("home-page");
         },
+
         search(req, res, next) {
             let searchType = req.query.searchType;
             let searchTerm = req.query.s;
-            switch (searchType){
+            switch (searchType) {
                 case "Users":
                     data.searchUsers(searchTerm)
                         .then(users => {

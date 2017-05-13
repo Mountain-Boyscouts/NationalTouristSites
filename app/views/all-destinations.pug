@@ -19,8 +19,12 @@ block main
                                     h3.panel-title
                                         a(href="user/destinations/" + url) #{destination.title}
                                 .panel-image
-                                    img(src=`${destination.imagePath}` class="destination-image transperant")
-                                    img(id="badge" src="/public/uploads/badge.png")
+                                    if(destination.complete)
+                                        img(src=`${destination.imagePath}` class="destination-image")
+                                        img(id="badge" src="/public/uploads/badge.png")
+                                    else
+                                        img(src=`${destination.imagePath}` class="destination-image transperant")                                    
+                                        img.hidden(id="badge" src="/public/uploads/badge.png")
                             else
                                 .panel-heading
                                     h3.panel-title

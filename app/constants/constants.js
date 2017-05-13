@@ -6,7 +6,8 @@ const constants = {
     passwordMinLength: 6,
     passwordRegex: /^[A-Za-z0-9_.!@#$%^&*(){}:"<>?~|]+$/,
     passwordResetExpirationInHours: 1,
-    passwordResetTokenLength: 50
+    passwordResetTokenLength: 50,
+    visited: []
 };
 
 module.exports = constants;

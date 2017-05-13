@@ -87,12 +87,14 @@ module.exports = function(models) {
         getAllUsers() {
             return new Promise((resolve, reject) => {
                 User.find(((err, user) => {
-                        if (err) {
-                            return reject(err);
-                        }
-                        return resolve(user);
-                    }));
+                    if (err) {
+                        return reject(err);
+                    }
+                    return resolve(user);
+                }));
             });
-        }
+        },
+
+        visited: []
     };
 };
