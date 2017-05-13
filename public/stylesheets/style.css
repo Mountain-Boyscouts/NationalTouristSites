@@ -93,8 +93,16 @@ img.profile-pic {
 .destination-image {
     width: 358px;
     height: 300px;
+    z-index: 100;
 }
 
 .transperant {
     opacity: 0.25;
+}
+
+#badge {
+    position: absolute;
+    right: 30px;
+    top: 65px;
+    z-index: 9999;
 }

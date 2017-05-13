@@ -18,5 +18,5 @@ module.exports = function(data) {
         showSingleFileUploadForm(req, res) {
             res.render("../views/upload-single-form.pug", { req });
         }
-    }
-}
+    };
+};
