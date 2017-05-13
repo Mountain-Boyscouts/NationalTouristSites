@@ -114,3 +114,8 @@ img.profile-pic {
 .nav {
     z-index: 20;
 }
+
+.index {
+    z-index: 50;
+    position: absolute;
+}
