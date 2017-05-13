@@ -7,11 +7,13 @@ include index
                 h1 Users
     .row
         each user in users
-            .col-md-6
+            .col-md-4
                 .panel.panel-primary
                     - var url = user.username;
 
                         .panel-heading
                             h3.panel-title
                                 a(href="user/" + url) #{user.username}                                
-                                button.pull-right.btn.btn-warning.col-md-4 Challenge Friend
+                               
+                                button.btn.btn-warning.pull-right Challenge
+                                button.btn.btn-success.pull-right Add Friend
