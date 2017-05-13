@@ -12,7 +12,7 @@ block main
                         .well
                             |  #{destination.description}
                     a(href='/destinations/uploadfile')
-                        img.col-sm-offset-4.profile-pic(src=destination.imagePath)
+                        img.col-sm-offset-3.img-responsive.img-thumbnail.profile-pic(src='../' + destination.imagePath)
                     form(action="/destinations/" + destination.id enctype="multipart/form-data" method="post")
                         input.btn(type="file" name="photo" placeholder="Choose File" accept="image/*" required)
                         input.btn.form-control.btn-success(type="submit" value="Save")
