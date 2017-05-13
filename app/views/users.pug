@@ -7,11 +7,12 @@ include index
                 h1 Users
     .row
         each user in users
-            .col-lg-12
+            .col-sm-12
                 .panel.panel-primary
                     - var url = user.username;
                         .panel-heading
                             h3.panel-title
                                 a(href="user/" + url) #{user.username}
                         .panel-body
-                            p #{user.fullName}
+                            h2 #{user.fullName}
+                            button.pull-right.btn.btn-warning.col-md-2 Challenge Friend

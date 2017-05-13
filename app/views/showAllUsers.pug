@@ -7,14 +7,11 @@ include index
                 h1 Users
     .row
         each user in users
-            .col-md-4
+            .col-md-6
                 .panel.panel-primary
                     - var url = user.username;
 
                         .panel-heading
                             h3.panel-title
-                                a(href="user/" + url) #{user.username}
-                        if(id == user.id)
-                        else
-                            button.btn.btn-success.col-md-6 Add Friend
-                            button.btn.btn-warning.col-md-6 Challenge Friend
+                                a(href="user/" + url) #{user.username}                                
+                                button.pull-right.btn.btn-warning.col-md-4 Challenge Friend

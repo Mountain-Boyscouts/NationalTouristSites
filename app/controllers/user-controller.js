@@ -15,8 +15,6 @@ module.exports = function(data) {
             const destinations = req.user.destinations;
             const visited = data.visited;
 
-            console.log(visited);
-
             destinations.forEach(x => {
                 if (visited.some(y => y == x._id)) {
                     x.complete = true;
