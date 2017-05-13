@@ -57,8 +57,11 @@ module.exports = function (data) {
             auth(req, res, next);
         },
         showAllUsers(req, res){
-           data.getAllUsers()
+            let ourId = req.user._id;
+
+            data.getAllUsers()
                .then((users)=>{
+                    users.ourId = `< ${ourId}>`.split(' ').join('');
                     res.render("../views/showAllUsers.pug",{users})
                })
         },

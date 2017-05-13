@@ -6,12 +6,16 @@ include index
             .page-header
                 h1 Users
     .row
+    - var id = users.ourId;
         each user in users
             .col-md-4
                 .panel.panel-primary
                     - var url = user.username;
+
                         .panel-heading
                             h3.panel-title
                                 a(href="user/" + url) #{user.username}
-                        button.btn.btn-success.col-md-6 Add Friend
-                        button.btn.btn-warning.col-md-6 Challenge Friend
+                        if(id == user.id)
+                        else
+                            button.btn.btn-success.col-md-6 Add Friend
+                            button.btn.btn-warning.col-md-6 Challenge Friend

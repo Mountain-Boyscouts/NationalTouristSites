@@ -3,6 +3,15 @@
 const mongoose = require("mongoose");
 
 let schema = new mongoose.Schema({
+    friends: {
+        type: Array,
+    },
+    challengedFriends: {
+        type: Array,
+    },
+    combat: {
+        type: Boolean,
+    },
     firstName: {
         type: String,
         required: true
@@ -28,16 +37,16 @@ let schema = new mongoose.Schema({
 
 schema
     .virtual("fullName")
-    .get(function() {
+    .get(function () {
         return `${this.firstName} ${this.lastName}`;
     });
 
-schema.query.byName = function(name) {
-    let query = { "username": new RegExp(name, "i") };
+schema.query.byName = function (name) {
+    let query = {"username": new RegExp(name, "i")};
     return this.find(query);
 };
 
-schema.methods.comparePassword = function(password) {
+schema.methods.comparePassword = function (password) {
     return this.password === password;
 };
 
