@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "postinstall": "bower install",
-    "test": "mocha \"Tests/tests-*/**/*.js\""
+    "postinstall": "bower install"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
