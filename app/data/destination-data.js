@@ -64,13 +64,12 @@ module.exports = function(models) {
             });
         },
 
-        addCommentToDestination(id, comment) {
+        addCommentToDestination(id, comment, username, userId) {
             return new Promise((resolve, reject) => {
-                console.log("V datata")
-                console.log(comment);
-                Destination.findByIdAndUpdate(id, { $push: { "comments": { comment: comment } } }, { safe: true, upsert: true },
+                Destination.findByIdAndUpdate(id, 
+                { $push: { "comments": { comment: comment, username: username, userId: userId } } },
+                { safe: true, upsert: true },
                     (err, model) => {
-                        console.log("1111");
                         if (err) {
                             reject(err);
                         }

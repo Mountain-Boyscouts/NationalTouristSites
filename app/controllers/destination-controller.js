@@ -49,7 +49,9 @@ module.exports = function(data) {
         addComment(req, res) {
             let id = req.params.id;
             let comment = req.body.content;
-            return data.addCommentToDestination(id, comment)
+            let username = req.user.username;
+            let userId = req.user._id;
+            return data.addCommentToDestination(id, comment, username, userId)
                 .then(() => {
                     res.redirect("/destinations/" + id);
                 })
