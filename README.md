@@ -6,7 +6,7 @@
 This is an online platform for sharing information about visited tourist sites. This application is for every person, who likes to travel and share places, where he has been.
 
 The application is hosted in the following domains:
-- <a href="https://dedsec.herokuapp.com/">Heroku Link 1</a>
+- <a href="https://blooming-beyond-23142.herokuapp.com">Heroku Link</a>
 
 ## Local Install
     $ npm install
