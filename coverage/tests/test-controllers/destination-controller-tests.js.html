@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>32/32</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>32/32</span>
       </div>
     </div>
   </div>
@@ -57,13 +57,103 @@
 12
 13
 14
-15</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -77,13 +167,58 @@ const chai = require("chai");
 const sinon = require("sinon");
 const expect = chai.expect;
 const data = {};
+const req = {
+    body: {
+        content: "Some comment",
+        commentId: "2",
+        name: "sv. Aleksandar Nevski",
+        description: "Nai-golqmata curkva na Balkanite",
+        imagePath: "put"
+    },
+    params: {
+        id: "2",
+        username: "Vasil"
+    },
+    user: { username: "Vasil",
+            _id: "5" 
+    }
+};
 &nbsp;
 const controller = require("../../app/controllers/destination-controller")(data);
 &nbsp;
 describe("NationalTouristSites/app/controllers/destination-controller.js tests", ()=&gt;{
+    let res = {};
+    beforeEach(() =&gt; {
+            res.redirect = sinon.stub();
+            data.addCommentToDestination = sinon.stub();
+            data.addCommentToDestination.returns(Promise.resolve());
+            data.createDestination = sinon.stub();
+            data.createDestination.returns(Promise.resolve());
+        });
+&nbsp;
+        afterEach(() =&gt; {
+            res.redirect = null;
+            data.addCommentToDestination = null;
+            data.createDestination = null;
+        });
+&nbsp;
     it("Expect addComment to exist and be a function.", () =&gt; {
             expect(controller.addComment).to.exist;
             expect(controller.addComment).to.be.a("function");
+        });
+    it("Expect addDestination to exist and be a function",()=&gt;{
+        expect(controller.addDestination).to.exist;
+        expect(controller.addDestination).to.be.a("function");
+        });
+    it("Expect addComment to call data.addCommentToDestination with correct params once.", () =&gt; {
+            controller.addComment(req, res);
+            expect(data.addCommentToDestination.calledOnce).to.be.true;
+            expect(data.addCommentToDestination.calledWith(req.params.id, req.body.content, req.user.username, req.user._id)).to.be.true;
+        });
+    it("Expect addDestination to call data.createDestination with correct params once.", () =&gt; {
+            controller.addDestination(req, res);
+            expect(data.createDestination.calledOnce).to.be.true;
+            expect(data.createDestination.calledWith(req.body.name, req.body.description, req.body.imagePath)).to.be.true;
         });
 });</pre></td></tr>
 </table></pre>
@@ -91,7 +226,7 @@ describe("NationalTouristSites/app/controllers/destination-controller.js tests",
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 18 2017 14:01:11 GMT+0300 (FLE Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 18 2017 16:04:45 GMT+0300 (FLE Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

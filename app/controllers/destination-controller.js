@@ -6,7 +6,7 @@ module.exports = function(data) {
         getDestination(req, res) {
             res.render("../views/create-destination.pug", {})
         },
-        addDestionation(req, res) {
+        addDestination(req, res) {
             let title = req.body.name;
             let description = req.body.description;
             let imagePath = req.body.imagePath;

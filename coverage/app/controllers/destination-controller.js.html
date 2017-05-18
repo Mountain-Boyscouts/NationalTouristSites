@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">8.33% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/24</span>
+        <span class='fraction'>14/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">8.33% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/24</span>
+        <span class='fraction'>14/24</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -111,32 +111,24 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,11 +145,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,18 +169,18 @@ module.exports = function(data) {
         getDestination(req, res) {
 <span class="cstat-no" title="statement not covered" >            res.render("../views/create-destination.pug", {})</span>
         },
-        addDestionation(req, res) {
-            let title = <span class="cstat-no" title="statement not covered" >req.body.name;</span>
-            let description = <span class="cstat-no" title="statement not covered" >req.body.description;</span>
-            let imagePath = <span class="cstat-no" title="statement not covered" >req.body.imagePath;</span>
+        addDestination(req, res) {
+            let title = req.body.name;
+            let description = req.body.description;
+            let imagePath = req.body.imagePath;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            data.createDestination(title, description, imagePath)</span>
-                .then(<span class="fstat-no" title="function not covered" >(d</span>estination) =&gt; {
-<span class="cstat-no" title="statement not covered" >                    console.log(destination);</span>
-                    let id = <span class="cstat-no" title="statement not covered" >destination._id;</span>
+            data.createDestination(title, description, imagePath)
+                .then((destination) =&gt; {
+                    console.log(destination);
+                    let id = destination._id;
 <span class="cstat-no" title="statement not covered" >                    res.redirect(id);</span>
                 })
-                .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
+                .catch((error) =&gt; {
 &nbsp;
                 })
         },
@@ -210,13 +210,13 @@ module.exports = function(data) {
         },
 &nbsp;
         addComment(req, res) {
-            let id = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
-            let comment = <span class="cstat-no" title="statement not covered" >req.body.content;</span>
-            let username = <span class="cstat-no" title="statement not covered" >req.user.username;</span>
-            let userId = <span class="cstat-no" title="statement not covered" >req.user._id;</span>
-<span class="cstat-no" title="statement not covered" >            return data.addCommentToDestination(id, comment, username, userId)</span>
-                .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >                    res.redirect("/destinations/" + id);</span>
+            let id = req.params.id;
+            let comment = req.body.content;
+            let username = req.user.username;
+            let userId = req.user._id;
+            return data.addCommentToDestination(id, comment, username, userId)
+                .then(() =&gt; {
+                    res.redirect("/destinations/" + id);
                 })
         }
     }
@@ -226,7 +226,7 @@ module.exports = function(data) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 18 2017 14:01:11 GMT+0300 (FLE Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 18 2017 16:04:45 GMT+0300 (FLE Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
