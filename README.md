@@ -1,5 +1,6 @@
 # NationalTouristSites
 [![Build Status](https://travis-ci.org/Mountain-Boyscouts/NationalTouristSites.svg?branch=master)](https://travis-ci.org/Mountain-Boyscouts/NationalTouristSites)
+[![Coverage Status](https://coveralls.io/repos/github/Mountain-Boyscouts/NationalTouristSites/badge.svg)](https://coveralls.io/github/Mountain-Boyscouts/NationalTouristSites)
 
 ## Project Description  
 
