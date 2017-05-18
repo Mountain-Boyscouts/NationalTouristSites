@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "postinstall": "bower install",
-    "test": "mocha \"tests/test-*/**/*.js\""
+    "test": "nyc --reporter=html --reporter=text mocha \"tests/test-*/**/*.js\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -34,7 +35,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.6.0",
     "mocha": "^3.1.2",
+    "nyc": "^10.3.2",
     "sinon": "^1.17.6"
   }
 }
