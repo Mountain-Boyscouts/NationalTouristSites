@@ -15,10 +15,11 @@ module.exports = function(data) {
                 .then((destination) => {
                     console.log(destination);
                     let id = destination._id;
+                    req.flash("successMessage", 'Successfully added new destination.')
                     res.redirect(id);
                 })
                 .catch((error) => {
-
+                    req.flash("errorMessage", error.message);
                 })
         },
 
